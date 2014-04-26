@@ -16,6 +16,8 @@ html
 		//- All .less files will be automatically compiled and minified in production.
 
 		link(href="/styles/site.min.css", rel="stylesheet")
+		link(href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,400italic' rel='stylesheet' type='text/css')
+		link(href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet")
 
 		//- This file provides the default styling for the KeystoneJS Content Editor
 		if user && user.canAccessKeystone
@@ -38,31 +40,10 @@ html
 	body
 
 		//- HEADER
-		#header: .container
-
-			//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
-			//- ... or completely change this header to suit your design.
-
-			div(role="navigation").navbar.navbar-default
-				.container-fluid
-					.navbar-header
-						button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-							span.sr-only Toggle navigation
-							span.icon-bar
-							span.icon-bar
-							span.icon-bar
-						a.navbar-brand(href='/') The Daniel B. Dingman Scholarship for Peace and Justice
-					.collapse.navbar-collapse
-						ul.nav.navbar-nav.navbar-left
-							each link in navLinks
-								li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
-						ul.nav.navbar-nav.navbar-right
-							if user
-								if user.canAccessKeystone
-									li: a(href='/keystone') Open Keystone
-								li: a(href='/keystone/signout') Sign Out
-							else
-								li: a(href='/keystone/signin') Sign In
+		#header
+			.jumbotron: .container-
+				lead Sponsored by the Los Alamos Foundation
+				h1 The Daniel B. Dingman Scholarship for Peace <span class="amp">&amp;</span> Justice
 
 		//- BODY
 		#body
@@ -83,11 +64,36 @@ html
 
 
 		//- FOOTER
-		.container: #footer
+		#footer: .container-fluid
+			.col-md-10
+				//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
+				//- ... or completely change this header to suit your design.
+				.col-sm-5
+					h4 The Los Alamos Foundation
+					address
+						strong Twitter, Inc.
+						p 795 Folsom Ave, Suite 600
+						p San Francisco, CA 94107<br>
+						abbr(title="phone") P: (805) 344-5150
 
-			//- You don't _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it!
-			p Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.
+					address First Last<br/>
+						a(href="") first.last@example.com
 
+				.col-sm-3
+					h4 Links
+					ul.nav-stacked
+						each link in navLinks
+							li(class=(section == link.key ? 'active' : null)): a(href=link.href)= link.label
+						if user
+							if user.canAccessKeystone
+								li: a(href='/keystone') Open Keystone
+							li: a(href='/keystone/signout') Sign Out
+						else
+							li: a(href='/keystone/signin') Sign In
+				.col-sm-4
+					h4 Donate
+					p.
+						Donate Now! Your tax deductible donation ensures the continuation of this scholarship.
 
 		//- JAVASCRIPT
 
@@ -106,6 +112,47 @@ html
 			script(src='/keystone/js/content/editor.js')
 
 		//- Add scripts that are globally required by your site here.
-
+		script.
+			$(document).ready(function() {
+				var radio = $('li#expandedQuestionSelection input:radio', 'form'),
+						singleOut = $('li#expandedQuestionSelection', 'form'),
+						show = $('#showAll', 'form');
+				$(radio).click(function() {
+					radio.not(':checked').hide('slow');
+					singleOut.find(radio).not(':checked').hide('slow');
+					singleOut.find(radio).not(':checked').parent(singleOut).hide('slow');
+					singleOut.find('input:radio:checked', 'form').hide('slow');
+					$(radio).siblings().addClass('selectedQuestion');
+					$(show).fadeIn();
+				});
+				$(show).click(function() {
+					singleOut.find(radio).not(':checked').show('slow');
+					singleOut.find(radio).not(':checked').parent().show('slow');
+					singleOut.find('input:radio:checked', 'form').show('slow');
+					$(radio).siblings().removeClass('selectedQuestion');
+					$(show).fadeOut();
+					return false;
+				});
+				// ROUND TWO
+				var radioTwo = $('li#expandedQuestionSelectionTwo input:radio', 'form'),
+						singleOutTwo = $('li#expandedQuestionSelectionTwo', 'form'),
+						showTwo = $('#showAllTwo', 'form');
+				$(radioTwo).click(function() {
+					radioTwo.not(':checked').hide('slow');
+					singleOutTwo.find(radioTwo).not(':checked').hide('slow');
+					singleOutTwo.find(radioTwo).not(':checked').parent(singleOutTwo).hide('slow');
+					singleOutTwo.find('input:radio:checked', 'form').hide('slow');
+					$(radioTwo).siblings().addClass('selectedQuestion');
+					$(showTwo).fadeIn('slow');
+				});
+				$(showTwo).click(function() {
+					singleOutTwo.find(radioTwo).not(':checked').show('slow');
+					singleOutTwo.find(radioTwo).not(':checked').parent().show('slow');
+					singleOutTwo.find('input:radio:checked', 'form').show('slow');
+					$(radioTwo).siblings().removeClass('selectedQuestion');
+					$(showTwo).fadeOut('slow');
+					return false;
+				});
+			});
 		//- Include template-specific javascript files by extending the js block
 		block js

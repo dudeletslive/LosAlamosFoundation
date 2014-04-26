@@ -1,5 +1,5 @@
 var keystone = require('keystone'),
-	Quote = keystone.list('Quote');
+		Enquiry = keystone.list('Enquiry');
 
 exports = module.exports = function(req, res) {
 
@@ -7,11 +7,9 @@ exports = module.exports = function(req, res) {
 		view = new keystone.View(req, res);
 
 	// Set locals
-	locals.section = 'home';
-
-	view.query('quotes', keystone.list('Quote').model.find().sort('sortOrder'));
+	locals.section = 'terms';
 	
 	// Render the view
-	view.render('index');
+	view.render('terms');
 
 }

@@ -634,7 +634,7 @@
 // [converter] $parent hack
 @mixin responsive-visibility($parent) {
   #{$parent} {
-    display: block !important;
+    display: inline-block !important;
   }
   table#{$parent}  { display: table; }
   tr#{$parent}     { display: table-row !important; }

@@ -9,7 +9,7 @@ mixin flash-messages(messages)
 				+flash-message(message, 'warning')
 			each message in messages.error
 				+flash-message(message, 'danger')
-				
+
 mixin flash-message(message, type)
 	div(class='alert alert-' + type)
 		if utils.isObject(message)
@@ -22,4 +22,4 @@ mixin flash-message(message, type)
 					each item in message.list
 						li= item
 		else
-			= message
+			p There was an error processing your application. It's likely that another human with the same email address has already applied.

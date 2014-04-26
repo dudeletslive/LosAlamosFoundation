@@ -18,12 +18,25 @@
   white-space: nowrap;
   @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, $border-radius-base);
   @include user-select(none);
-
+  @include transition-duration(0.25s);
   &,
   &:active,
   &.active {
     &:focus {
       @include tab-focus();
+    }
+    &.btn-success {
+      border-bottom: 2px solid darken($brand-success, 20%);
+    }
+    &.btn-primary {
+      border-bottom: 2px solid darken($brand-primary, 20%);
+    }
+    &:active {
+      border-bottom: 2px solid transparent;
+      @include box-shadow(0 1px 0 rgba(255,255,255,0.4));
+    }
+    &:focus {
+      outline: 0;
     }
   }
 

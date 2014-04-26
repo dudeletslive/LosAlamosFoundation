@@ -1,23 +1,55 @@
 extends ../layouts/default
 
 block content
-	.container: .jumbotron
-		img(src='/images/logo.svg', width='160')
-		h1 Welcome
-		p This is your new <a href='http://keystonejs.com', target='_blank'>KeystoneJS</a> website.
-		p It includes the latest versions of
-			| <a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a>
-			| and <a href='http://www.jquery.com/' target='_blank'>jQuery</a>.
-		p Visit the <a href='http://keystonejs.com/guide' target='_blank'>Getting Started</a> guide to learn how to customise it.
-		hr
-		if user && user.canAccessKeystone
-			p
-				a(href='/keystone/signin').btn.btn-lg.btn-primary Open the Admin UI
-		else
-			p We have created a default Admin user for you with the email <strong>user@keystonejs.com</strong> and the password <strong>admin</strong>.
-			p
-				a(href='/keystone/signin', style='margin-right: 10px').btn.btn-lg.btn-primary Sign in
-				|  to use the Admin UI.
-		hr
-		p Remember to <a href='https://github.com/JedWatson/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
-			| <a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
+	.container
+		h1 Test
+		p.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet adipiscing ipsum interdum bibendum. Nunc ultrices dui at massa ullamcorper gravida. Etiam volutpat congue lectus, vel cursus justo. Vivamus sed odio eu ipsum elementum vulputate. Mauris blandit mauris non nisi tristique sollicitudin. Aliquam ac placerat lectus. Donec porttitor placerat magna, a varius orci condimentum et. Integer nulla magna, consectetur a vulputate a, rutrum sed turpis. Aliquam lorem neque, tristique vel vestibulum nec, consequat sit amet elit.
+
+		#quotes
+			if quotes.length
+				each Quote in quotes
+					.col-sm-1.hidden-xs
+						p &#8220;
+					.col-sm-10
+						.quote
+							span.visible-xs "
+							= Quote.quote
+							span.visible-xs
+						.author= Quote.author
+					.col-sm-1.col-sm-1.hidden-xs
+						p &#8221;
+			else
+				.col-sm-1.hidden-xs
+					p &#8220;
+				.col-sm-10
+					.quote <span class="visible-xs">"</span>Aliquam lorem neque, tristique vel vestibulum nec, consequat sit amet elit.<span class="visible-xs">"</span>
+					.author Author, F.
+				.col-sm-1.col-sm-1.hidden-xs
+					p &#8221;
+
+		h1 Scholarship Details
+		p.
+			The Daniel B Dingman Scholarship for Peace and Justice was established by the Los Alamos Foundation to honor the memory of Dan Dingman who passed away in September 2013. Dan was a lifelong believer in and practitioner of these causes. You can learn more about Dan, and the ways in which he served these beliefs here. While reading these articles is not a prerequisite to applying for the scholarship they will help you to better understand our purpose in making this scholarship available to you.
+		p.
+			To apply for this scholarship you must live in Los Alamos, or the surrounding Los Alamos Valley, be a senior in good standing at an accredited high school, and intend to further pursue your education at a 2 or 4-year college or university. The actual dispensation of funds will be made upon proof of enrollment.
+	.col-sm-12#sponsors
+		.arrow-down
+		.container
+			h4 This opportunity is made possible thanks to support from our donors.
+	.col-sm-12#applyCTA
+		.container
+			.col-sm-4#applyIcon
+				span(class="fa-stack fa-lg")
+					i(class="fa fa-circle fa-stack-2x")
+					i(class="fa fa-pencil fa-stack-1x fa-inverse")
+			.col-sm-8#applyToday
+				h4 Submit your application today!
+				.col-xs-6: a(href="/application").btn.btn-success
+					p Apply Online
+				.col-xs-6: .btn.btn-primary
+					p Print it Out
+	.laf: .container
+		h1 Test
+		p.
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aliquet adipiscing ipsum interdum bibendum. Nunc ultrices dui at massa ullamcorper gravida. Etiam volutpat congue lectus, vel cursus justo. Vivamus sed odio eu ipsum elementum vulputate. Mauris blandit mauris non nisi tristique sollicitudin. Aliquam ac placerat lectus. Donec porttitor placerat magna, a varius orci condimentum et. Integer nulla magna, consectetur a vulputate a, rutrum sed turpis. Aliquam lorem neque, tristique vel vestibulum nec, consequat sit amet elit.

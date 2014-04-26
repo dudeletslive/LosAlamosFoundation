@@ -1,34 +1,139 @@
 extends ../layouts/default
 
 block intro
-	.container
-		h1 Contact Us
-		
+
 block content
-	.container
+	.container#single
+		ol.breadcrumb#applyNow
+			li: a(href="/") Home
+			li: a(href="/application") Application Terms
+			li(class="active") Application Form
 		if enquirySubmitted
-			h3 Thanks for getting in touch.
+			h1 Your application has been submitted.
+			.alert.alert-info
+				i.fa.fa-exclamation-circle#exclaim
+				p Remember, your application will only be reviewed once we receive your two letters or recommendation.
+			p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis nisi vel erat rutrum gravida et sit amet orci. Pellentesque cursus et metus nec consequat. In et mi ante. Aliquam consectetur, erat iaculis porttitor vehicula, nisi sem porttitor arcu, in hendrerit urna nisl pellentesque mauris.
+			p Learn more about the man that inspired this opportunity <a href="/blog">here.</a>
 		else
-			.row: .col-sm-8.col-md-6
+			h1 Application Form
+			.row: .col-sm-8.col-md-8
 				form(method='post')
 					input(type='hidden', name='action', value='contact')
-					.form-group(class=validationErrors.name ? 'has-error' : null)
-						label Name
-						input(type='text', name='name.full', value=formData['name.full'], required).form-control
-					.form-group(class=validationErrors.email ? 'has-error' : null)
+					.form-group.row
+						.col-sm-6
+							label First Name
+							input(type='text', name='name.first', value=formData['name.first'] ).form-control
+						.col-sm-6
+							label Last Name
+							input(type='text', name='name.last', value=formData['name.last'] ).form-control
+					.form-group
+						label Gender
+						select(name='gender').form-control
+							each type in gender
+								option(value=type.value, selected=formData.gender == type.value)= type.label
+					.form-group.row
+						.col-sm-12
+							label Date of Birth
+						.col-sm-6.col-xs-5
+							select(name='month').form-control
+								each type in month
+									option(value=type.value, selected=formData.month == type.value)= type.label
+						.col-sm-2.col-xs-3
+							select(name='day').form-control
+								each type in day
+									option(value=type.value, selected=formData.day == type.value)= type.label
+						.col-sm-4.col-xs-4
+							select(name='year').form-control
+								each type in year
+									option(value=type.value, selected=formData.year == type.value)= type.label
+					.form-group
 						label Email
-						input(type='email', name='email', value=formData.email, required).form-control
+						input(type='email', name='email', value=formData.email ).form-control
 					.form-group
 						label Phone
 						input(type='text', name='phone', value=formData.phone, placeholder='(optional)').form-control
-					.form-group(class=validationErrors.enquiryType ? 'has-error' : null)
+					.form-group
+						.lead Address
+						label PO Box
+						input(type='text', name='poBox', value=formData.poBox ).form-control
+						label Physical Address
+						input(type='text', name='physicalAddress', value=formData.physicalAddress ).form-control
+						.row
+							.col-sm-6
+								label City
+								input(type='text', name='city', value=formData.city ).form-control
+							.col-sm-6
+								label State / Province Region
+								input(type='text', name='state / Province / Region', value=formData['state / Province / Region'] ).form-control
+						.row
+							.col-sm-6
+								label Postal / Zip Code
+								input(type='text', name='zipCode', value=formData.zipCode ).form-control
+							.col-sm-6
+								label Country
+								input(type='text', name='country', value=formData.country ).form-control
+					.form-group
+						.lead Academics
 						label What are you contacting us about?
-						select(name='enquiryType').form-control
-							option(value='') (select one)
-							each type in enquiryTypes
-								option(value=type.value, selected=formData.enquiryType == type.value)= type.label
-					.form-group(class=validationErrors.message ? 'has-error' : null)
-						label Message
-						textarea(name='message', placeholder='Leave us a message...' rows=4).form-control= formData.message
+						select(name='estimatedGPA').form-control
+							each type in estimatedGPA
+								option(value=type.value, selected=formData.estimatedGPA == type.value)= type.label
+					.form-group
+						label Are you or have you been enrolled in any AP courses?
+						br
+						each type in apCourses
+							if type.value == formData.apCourses
+								input(type='radio', name='apCourses', selected=formData.apCourses == type.value, checked="checked" )
+								lead= type.label
+							else
+								input(type='radio', name='apCourses', value=type.value, selected=formData.apCourses == type.value )
+								lead= type.label
+								br
+					.form-group
+						label Please list any extra curricular activies you believe are relevant below.
+						textarea(name='extraCurricularActivities', placeholder='Extra curricular activies...' rows=4).form-control= formData.extraCurricularActivities
+					.form-group
+						.lead Short Response
+						label Expanded Question One
+							a(href="#" id="showAll") Change Question
+						br
+						ul
+							each type in expandedQuestion
+								li#expandedQuestionSelection
+									if type.value == formData.expandedQuestion
+										input(type='radio', name='expandedQuestion', selected=formData.expandedQuestion == type.value, checked="checked" )
+										lead(class="selectedQuestion")= type.label
+									else
+										input(type='radio', name='expandedQuestion', value=type.value, selected=formData.expandedQuestion == type.value )
+										lead= type.label
+										br
+						br
+						textarea(name='expandedQuestionResponse', placeholder='Write your response to the selected question here...' rows=4).form-control= formData.expandedQuestionResponse
+					.form-group
+						label Expanded Question Two
+							a(href="#" id="showAllTwo") Change Question
+						br
+						ul
+							each type in expandedQuestionTwo
+								li#expandedQuestionSelectionTwo
+									if type.value == formData.expandedQuestionTwo
+										input(type='radio', name='expandedQuestionTwo', selected=formData.expandedQuestionTwo == type.value, checked="checked" )
+										lead(class="selectedQuestion")= type.label
+									else
+										input(type='radio', name='expandedQuestionTwo', value=type.value, selected=formData.expandedQuestionTwo == type.value )
+										lead= type.label
+										br
+						br
+						textarea(name='expandedQuestionTwoResponse', placeholder='Write your response to the selected question here...' rows=4).form-control= formData.expandedQuestionTwoResponse
+					.alert.alert-info
+						h3 Letters of Recommendation
+						p Your application will be considered upon receiving two letters or recommendation. The first should be from an administrator or teacher at your school, printed on official school letterhead, and sealed. The second should be from a leader in your community that can vouch for your service to the community.
+						p We ask that you address your letters to:
+						pre: address.
+							PO Box 477
+							Los Alamos, CA 93440
+							Attention: Monna
+						p We also ask that contact information be included with your letters of recommendation so that we can vertify the authenticity when we receive them.
 					.form-actions
 						button(type='submit').btn.btn-primary Send
