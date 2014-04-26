@@ -11,7 +11,8 @@ logs
 results
 
 npm-debug.log
-node_modules
+node_modules/grunt
+node_modules/grunt-contrib-*
 
 .DS_Store
 
