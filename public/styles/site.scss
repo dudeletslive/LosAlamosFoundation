@@ -117,12 +117,6 @@ a {
       margin: 5px 20px;
     }
   }
-  .col-xs-6 {
-    text-align: right;
-    &:last-child {
-      text-align: left;
-    }
-  }
   .fa-stack {
     .fa-circle {
       @include opacity(0.9);

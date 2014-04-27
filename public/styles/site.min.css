@@ -5106,10 +5106,6 @@ a#showAll, a#showAllTwo {
   box-shadow: rgba(0, 0, 0, 0.7) 0 6px 8px inset; }
   .col-sm-12#applyCTA .btn p {
     margin: 5px 20px; }
-  .col-sm-12#applyCTA .col-xs-6 {
-    text-align: right; }
-    .col-sm-12#applyCTA .col-xs-6:last-child {
-      text-align: left; }
   .col-sm-12#applyCTA .fa-stack .fa-circle {
     opacity: 0.9;
     filter: alpha(opacity=90);
