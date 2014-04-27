@@ -8,7 +8,8 @@ var Quotes = new keystone.List('Quote', {
 
 Quotes.add({
 	author: { type: String },
-	quote: { type: Types.Textarea }
+	quote: { type: Types.Textarea },
+	quoteImage: { type: Types.CloudinaryImage, note: 'Only shows on quotes page, use a photo of the speaker if available.' },
 });
 
 Quotes.defaultColumns = 'author|20%, quote|40%';

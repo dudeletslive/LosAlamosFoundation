@@ -5053,7 +5053,7 @@ a#showAll, a#showAllTwo {
 
 /* Begin page styling */
 #header .jumbotron {
-  background: url("http://37.media.tumblr.com/10744cab3e8c4882fb64b6ae7f888a2f/tumblr_mrrad4hojD1st5lhmo1_1280.jpg");
+  background: url("../images/banner.png");
   background-position: 0;
   background-size: cover;
   text-align: center;
@@ -5195,6 +5195,38 @@ i#exclaim {
 
 .alert.alert-info p {
   display: inline; }
+
+#quotesPage {
+  margin: -55px 0 -30px; }
+  #quotesPage ul {
+    list-style-type: none; }
+    #quotesPage ul li {
+      padding: 20px 0; }
+      #quotesPage ul li:first-child {
+        -webkit-box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 -2px 3px 0 rgba(0, 0, 0, 0.3); }
+      #quotesPage ul li:nth-child(odd) {
+        background: #5cb85c;
+        -webkit-transition-duration: 0.25s;
+        transition-duration: 0.25s; }
+        #quotesPage ul li:nth-child(odd):hover {
+          background: #4cae4c;
+          position: relative;
+          z-index: 99;
+          -webkit-box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.6);
+          box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.6); }
+        #quotesPage ul li:nth-child(odd) .author {
+          color: #eeeeee; }
+      #quotesPage ul li:nth-child(even) {
+        background: #eeeeee;
+        -webkit-transition-duration: 0.25s;
+        transition-duration: 0.25s; }
+        #quotesPage ul li:nth-child(even):hover {
+          background: #e2e2e2;
+          position: relative;
+          z-index: 99;
+          -webkit-box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 3px 4px rgba(0, 0, 0, 0.4); }
 
 #footer {
   background: url("../images/asfalt.png") repeat;

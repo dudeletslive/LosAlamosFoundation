@@ -54,7 +54,7 @@ a {
 /* Begin page styling */
 #header {
   .jumbotron {
-    background: url('http://37.media.tumblr.com/10744cab3e8c4882fb64b6ae7f888a2f/tumblr_mrrad4hojD1st5lhmo1_1280.jpg');
+    background: url('../images/banner.png');
     background-position: 0;
     background-size: cover;
     text-align: center;
@@ -239,6 +239,41 @@ i#exclaim {
 .alert.alert-info {
   p {
     display: inline;
+  }
+}
+#quotesPage {
+  margin: -55px 0 -30px;
+  ul {
+    list-style-type: none;
+    li {
+      padding: 20px 0;
+      &:first-child {
+        @include box-shadow(0 -2px 3px 0 rgba(0,0,0,0.3));
+      }
+      &:nth-child(odd) {
+        background: $brand-success;
+        @include transition-duration(0.25s);
+        &:hover {
+          background: darken($brand-success, 5%);
+          position: relative;
+          z-index: 99;
+          @include box-shadow(0 0 3px 4px rgba(0,0,0,0.6));
+        }
+        .author {
+          color: $gray-lighter;
+        }
+      }
+      &:nth-child(even) {
+        background: $gray-lighter;
+        @include transition-duration(0.25s);
+        &:hover {
+          background: darken($gray-lighter, 5%);
+          position: relative;
+          z-index: 99;
+          @include box-shadow(0 0 3px 4px rgba(0,0,0,0.4));
+        }
+      }
+    }
   }
 }
 #footer {

@@ -9,7 +9,7 @@ exports = module.exports = function(req, res) {
 	// Set locals
 	locals.section = 'home';
 
-	view.query('quotes', keystone.list('Quote').model.find().sort('sortOrder'));
+	view.query('quotes', keystone.list('Quote').model.findOne());
 	
 	// Render the view
 	view.render('index');

@@ -1,0 +1,18 @@
+extends ../layouts/default
+
+block content
+	#quotesPage
+		ul#quotes
+			if quotes.length
+				each Quote in quotes
+					li.col-sm-12
+						.container
+							.col-sm-9.quote
+								span.visible-xs "
+								= Quote.quote
+								span.visible-xs
+							.col-sm-3.author
+								img(src=Quote._.quoteImage.limit(800,500)).img-responsive.img-circle
+								= Quote.author
+			else
+				h1 There are no quotes yet!

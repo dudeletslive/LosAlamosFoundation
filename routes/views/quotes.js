@@ -12,6 +12,6 @@ exports = module.exports = function(req, res) {
 	view.query('quotes', keystone.list('Quote').model.find().sort('sortOrder'));
 
 	// Render the view
-	view.render('index');
+	view.render('quotes');
 
 }

@@ -21,5 +21,6 @@ exports = module.exports = function(app) {
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/application', routes.views.terms);
 	app.all('/application/form', routes.views.contact);
+	app.all('/quotes', routes.views.quotes);
 
 }
