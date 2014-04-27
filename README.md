@@ -3,7 +3,7 @@ Los Alamos Foundation
 
 The Los Alamos Foundation Charity Site | Host of The Daniel B. Dingman Scholarship for Peace and Justice
 
-Currently live at http://losalamosfoundation.herokuapp.com, soon to be live at thelosalamosfoundation.org
+Currently live at https://www.losalamosfoundation.herokuapp.com, soon to be live at http://www.thelosalamosfoundation.org
 
 Code Base
 ===================
