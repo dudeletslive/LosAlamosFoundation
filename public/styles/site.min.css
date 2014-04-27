@@ -5088,6 +5088,9 @@ a#showAll, a#showAllTwo {
   border-top: 1px solid #d5d5d5;
   margin-top: 30px;
   padding: 10px 0; }
+.col-sm-12#sponsors {
+  text-align: center;
+  padding: 10px 0 20px; }
 .col-sm-12#banner {
   clear: both;
   float: none;
