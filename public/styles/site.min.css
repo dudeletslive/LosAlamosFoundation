@@ -5004,6 +5004,9 @@ button.close {
   .hidden-print {
     display: none !important; } }
 /* Utilities */
+::selection {
+  background: #fdebc6; }
+
 .amp {
   font-family: Baskerville, 'Goudy Old Style', Palatino, 'Book Antiqua', serif;
   font-style: italic;
