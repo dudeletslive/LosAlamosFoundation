@@ -1954,6 +1954,15 @@ select[multiple].input-lg,
     color: white;
     background-color: #333333; }
 
+.btn-default-disabled {
+  background: #428bca;
+  color: #FFF;
+  opacity: 0.5;
+  filter: alpha(opacity=50); }
+  .btn-default-disabled:hover {
+    color: #FFF;
+    cursor: not-allowed; }
+
 .btn-primary {
   color: white;
   background-color: #428bca;

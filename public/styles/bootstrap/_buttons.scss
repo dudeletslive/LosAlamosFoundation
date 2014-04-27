@@ -70,6 +70,15 @@
 .btn-default {
   @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
 }
+.btn-default-disabled {
+  background: $brand-primary;
+  color: #FFF;
+  @include opacity(0.5);
+  &:hover {
+    color: #FFF;
+    cursor: not-allowed;
+  }
+}
 .btn-primary {
   @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
 }

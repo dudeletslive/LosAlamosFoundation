@@ -50,7 +50,6 @@ block content
 			.col-xs-6.col-sm-4 Donor, Last;
 			.col-xs-6.col-sm-4 Donor, Last;
 			.col-xs-6.col-sm-4 Donor, Last;
-			
 
 	.col-sm-12#applyCTA
 		.container
@@ -62,7 +61,7 @@ block content
 				h4 Submit your application today!
 				.col-xs-6: a(href="/application").btn.btn-success
 					p Apply Online
-				.col-xs-6: .btn.btn-primary.disabled
+				.col-xs-6: button(id="printButton" type="button" class="btn btn-default-disabled" data-toggle="tooltip" data-placement="top" title="" data-original-title="We're working on a printable application. We apologize for any inconvience this may cause.")
 					p Print it Out
 	.laf: .container
 		h1 Test
