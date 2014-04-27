@@ -5066,7 +5066,7 @@ a#showAll, a#showAllTwo {
 /* Begin page styling */
 #header .jumbotron {
   background: url("../images/banner.png");
-  background-position: 0;
+  background-position: top;
   background-size: cover;
   text-align: center;
   text-shadow: 0 2px 0 black; }
